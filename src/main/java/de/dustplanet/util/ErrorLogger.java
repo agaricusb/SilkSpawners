@@ -162,11 +162,11 @@ public class ErrorLogger extends PluginLogger {
 					generateErrorLog(throwable);
 				}
 			});
-            try {
-                mcLogger = MinecraftServer.class.getDeclaredField("log"); // CB name
-            } catch (NoSuchFieldException ex) {
-                mcLogger = MinecraftServer.class.getDeclaredField(/*"log"*/"a"); // obfuscated name
-            }
+			try {
+				mcLogger = MinecraftServer.class.getDeclaredField("log"); // CB name
+			} catch (NoSuchFieldException ex) {
+				mcLogger = MinecraftServer.class.getDeclaredField(/*"log"*/"a"); // obfuscated name
+			}
 			mcLogger.setAccessible(true);
 			craftbukkitServer = CraftServer.class.getDeclaredField("console");
 			craftbukkitServer.setAccessible(true);

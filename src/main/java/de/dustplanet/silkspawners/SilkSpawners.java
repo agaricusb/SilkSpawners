@@ -161,8 +161,8 @@ public class SilkSpawners extends JavaPlugin {
 			short entityID = (short)(int) entry.getKey();
 			// internal mod ID used for spawner type
 			String mobID = entry.getValue();
-            // bukkit's useless wrapper
-            EntityType bukkitEntity = EntityType.fromId(entityID);
+			// bukkit's useless wrapper
+			EntityType bukkitEntity = EntityType.fromId(entityID);
 
 			// Lookup creature info
 			boolean enable = config.getBoolean("enableCreatureDefault", true);
@@ -240,11 +240,11 @@ public class SilkSpawners extends JavaPlugin {
 
 				// Get the modID field, see
 				// https://github.com/Bukkit/CraftBukkit/blob/master/src/main/java/net/minecraft/server/TileEntityMobSpawner.java#L11
-                try {
-                    su.mobIDField = TileEntityMobSpawner.class.getDeclaredField("mobName"); // CB name
-                } catch (NoSuchFieldException ex) {
-                    su.mobIDField = TileEntityMobSpawner.class.getDeclaredField("d"); // obfuscated name
-                }
+				try {
+					su.mobIDField = TileEntityMobSpawner.class.getDeclaredField("mobName"); // CB name
+				} catch (NoSuchFieldException ex) {
+					su.mobIDField = TileEntityMobSpawner.class.getDeclaredField("d"); // obfuscated name
+				}
 				su.mobIDField.setAccessible(true);
 			}
 			catch (Exception e) {
